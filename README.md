@@ -3,6 +3,7 @@ The geometries layer contains the geometries of the sampling units and permanent
 For variable attributes, there is a table for each year, starting from the availability of Sentinel-2 images.
 
 Below is a description of each attribute:
+
 -Name:		Unit ID.
 -orbits:		Names of the Sentinel-2 orbits that completely overlap the unit.
 -tile_area:		Total area in m².
