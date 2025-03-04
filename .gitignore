@@ -1,0 +1,46 @@
+# Ignore lintr configuration file
+.lintr
+
+# Ignore Conda environment files
+environment.yml
+*.lock
+
+# Ignore Python virtual environments
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore large data files
+*.gpkg
+*.tif
+*.tiff
+*.shp
+*.shx
+*.dbf
+*.prj
+*.geojson
+*.csv
+*.tsv
+*.xlsx
+
+# Ignore cache and log files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Ignore IDE and editor configurations
+.vscode/
+.idea/
+.Rproj.user/
+
+# Ignore outputs and generated results
+outputs/*
+!outputs/.gitkeep
+sampling.gpkg
