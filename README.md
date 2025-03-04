@@ -56,8 +56,8 @@ Once the environment is set up, run the script using command-line arguments:
 python sampling.py \
     --gpk_path "C:/path/to/S2BAVG.gpkg" \
     --output_sampling_path "C:/path/to/output/sampling.gpkg" \
-    --year "2019" \
-    --ba_data "firecci51" \
+    --year "2019" \ 
+    --ba_data "firecci51" \  # Options: "firecci51" or "mcd64a1"
     --total_sample_size 100 \
     --land_perc_filter 50 \
     --nocloudy_interval_filter 10
