@@ -1,69 +1,100 @@
-The Geopackage S2BAVG is a database created for validating burned area products using Sentinel-2 images.
-The geometries layer contains the geometries of the sampling units and permanent attributes.
-For variable attributes, there is a table for each year, starting from the availability of Sentinel-2 images.
+# **S2BAVG - Burned Area Validation using Sentinel-2**
 
-Below is a description of each attribute:
+## **Description**
 
--Name:		Unit ID.
+The **S2BAVG** GeoPackage is a database designed for validating burned area (BA) products using Sentinel-2 images. It contains:
 
--orbits:		Names of the Sentinel-2 orbits that completely overlap the unit.
+- A layer with the geometries of the sampling units and their permanent attributes.
+- Annual tables with variable attributes since the availability of Sentinel-2 images.
 
--tile_area:		Total area in m².
+### **Main Attributes**
 
--land_area:		Land area in m².
+- `Name`: Sampling unit ID.
+- `orbits`: Sentinel-2 orbits that fully cover the unit.
+- `tile_area`: Total area in m².
+- `land_area`: Land area in m².
+- `land_perc`: Percentage of land area over the total area (`land_area / tile_area`).
+- `biome`: The dominant biome in the unit.
+- `mcd64a1_area`: Total burned area at least once throughout the year according to **MCD64A1**.
+- `firecci51_area`: Total burned area at least once throughout the year according to **FireCCI51**.
+- `viirs_count_year`: Total number of VIIRS (VNP14IMGTDL) detections in the year.
+- `image_days_year`: Days with at least one Sentinel-2 image covering at least 99% of the unit.
+- `median_days_interval_year`: Median interval of days between Sentinel-2 images.
+- `semester`: Estimated semester as the main fire season of the year.
+- `date_pre_fireseason` and `date_post_fireseason`: Estimated start and end dates of the fire season.
+- `viirs_count_fireseason`: Number of VIIRS detections in the fire season.
+- `image_days_fireseason`: Number of Sentinel-2 image days in the fire season.
+- `image_days_fireseason_nocloudy`: Sentinel-2 image days with low cloud cover in the fire season.
+- `median_days_interval_fireseason_nocloudy`: Median interval between cloud-free Sentinel-2 images.
 
--land_perc:		Percentage of land area over the total area. (land_area / tile_area).
+---
 
--biome:		The biome with the largest area in the unit.
+## **Generating Sampling with **``
 
--mcd64a1_area:		Total burned area at least once throughout the year, according to the MCD64A1 product, in m². 
+The `` script generates stratified sampling for annual burned area validation. To ensure smooth execution, it is recommended to use a **conda environment**.
 
--mcd64a1_burned_perc:		Percentage of mcd64a1_area over the land area. (mcd64a1_area/land_area).
+### **1. Creating and Activating a Conda Environment**
 
--firecci51_area:		Total burned area at least once throughout the year, according to the FireCCI51 product, in m².
+To avoid dependency conflicts, follow these steps to create a dedicated environment:
 
--firecci51_burned_perc:		Percentage of firecci51_area over the land area. (firecci51_area/land_area).
+```bash
+# Create a new conda environment named 's2bavg_env' with Python 3.9
+conda create --name s2bavg_env python=3.9 -y
 
--viirs_count_year:		Total number of VIIRS AF (VNP14IMGTDL) points detected throughout the year.
+# Activate the environment
+conda activate s2bavg_env
 
--image_days_year:		Total number of days with at least one Sentinel-2 image covering at least 99% of the unit throughout the year.
+# Install required dependencies
+conda install -c conda-forge geopandas pandas numpy -y
+```
 
--median_days_interval_year:		median interval of days between consecutive days of image_days_year.
+### **2. Running the Script**
 
--semester:		Estimated semester as the main fire season of the year. If the value is 0, it represents a single fire season throughout the year, and 1 or 2 represent two fire seasons (with the change of the year). The value represents which of the two seasons contains more fires.
+Once the environment is set up, run the script using command-line arguments:
 
--date_pre_fireseason:		Estimated start date of the fire season.
+```bash
+python sampling.py \
+    --gpk_path "C:/path/to/S2BAVG.gpkg" \
+    --output_sampling_path "C:/path/to/output/sampling.gpkg" \
+    --year "2019" \
+    --ba_data "firecci51" \
+    --total_sample_size 100 \
+    --land_perc_filter 50 \
+    --nocloudy_interval_filter 10
+```
 
--date_post_fireseason:		Estimated end date of the fire season.
+### **3. Output Files**
 
--days_fireseason:		Total number of days in the estimated fire season.
+The script generates a **GeoPackage** output file containing two main layers:
 
--viirs_count_fireseason:		Total number of VIIRS (VNP14IMGTDL) points detected in the fire season.
+1. ``: Stratification layer based on biome and fire activity.
+2. ``: Final selection of sampled units.
 
--image_days_fireseason:		Total number of days with at least one Sentinel-2 image covering at least 99% of the unit in the fire season.
+The output file will be stored at the location specified in `output_sampling_path`.
 
--median_days_interval_fireseason:		Median interval of days between consecutive days of image_days_fireseason.
+### **4. Deactivating the Conda Environment**
 
--image_days_fireseason_nocloudy:		Total number of days with at least one low-cloud Sentinel-2 image covering at least 99% of the unit in the fire season.
+After execution, you can deactivate the environment with:
 
--median_days_interval_fireseason_nocloudy:		Median interval of days between consecutive days of image_days_fireseason_nocloudy.
+```bash
+conda deactivate
+```
 
+---
 
+## **Additional Notes**
 
-The sampling.py file is a Python script created to design the sampling for an annual BA validation using S2BAVG.
-At the beginning of the code, the following inputs need to be filled in:
+- **Customization:** You can adjust the filtering criteria (`land_perc_filter`, `nocloudy_interval_filter`) and `total_sample_size` as needed.
+- **Compatibility:** The script is designed for **Python 3.9** and later versions.
+- **Validation:** You can open the `sampling.gpkg` file in GIS software like **QGIS** or **ArcGIS** to visualize results.
 
--gpk_path: The directory of the S2BAVG.gpkg file.
+---
 
--output_sampling_path: The directory where the sampling design result will be saved.
+## **Advantages of Using Conda**
 
--year: The year to be sampled (available from 2016).
+✅ **Isolated environment** prevents conflicts with other projects.\
+✅ **Easy installation** of geospatial dependencies via **conda-forge**.\
+✅ **Cross-platform compatibility** for Windows, Linux, and macOS.
 
--ba_data: The BA product to be used for stratifying the sample: 'firecci51' (available from 2016 to 2020) or 'mcd64a1'.
-
--total_sample_size: Defines the sample size. The final sample size may slightly differ to ensure a minimum number of samples in each stratum.
-
--land_perc_filter: Criterion to remove units with a percentage of land area below the specified threshold (from 0 to 100).
-
--nocloudy_interval_filter: Criterion to remove units with higher median intervals between consecutive low-cloud Sentinel-2 images.
+This setup ensures a professional and reproducible workflow for generating burned area validation samples. Let us know if you need further modifications!
 
