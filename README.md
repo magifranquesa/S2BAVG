@@ -1,4 +1,4 @@
-# **S2BAVG - Sentinel-2 Burned Area Validation Grid **
+# **S2BAVG - Sentinel-2 Burned Area Validation Grid**
 
 ## **Description**
 
