@@ -29,9 +29,32 @@ The **S2BAVG** GeoPackage is a database designed for validating burned area (BA)
 
 ---
 
-## **Generating Sampling with **``
+## **Generating Sampling with the Script**
 
-The `` script generates stratified sampling for annual burned area validation. To ensure smooth execution, it is recommended to use a **conda environment**.
+To generate the sampling for annual burned area validation, follow these steps:
+
+1. **Ensure Conda Environment is Active**: Make sure you have activated the `s2bavg_env` environment as described in the previous section.
+
+2. **Run the Script**: Execute the script with the appropriate command-line arguments. For example:
+
+    ```bash
+    python sampling.py \
+        --gpk_path "C:/path/to/S2BAVG.gpkg" \
+        --output_sampling_path "C:/path/to/output/sampling.gpkg" \
+        --year "2019" \
+        --ba_data "firecci51" \
+        --total_sample_size 100 \
+        --land_perc_filter 50 \
+        --nocloudy_interval_filter 10
+    ```
+
+3. **Check Output**: The script will generate a GeoPackage file at the location specified in `output_sampling_path`. This file will contain the stratification layer and the final selection of sampled units.
+
+4. **Visualize Results**: Open the `sampling.gpkg` file in GIS software like QGIS or ArcGIS to review and validate the sampling results.
+
+By following these steps, you can efficiently generate and validate sampling units for burned area analysis using Sentinel-2 data.
+
+The script generates stratified sampling for annual burned area validation. To ensure smooth execution, it is recommended to use a **conda environment**.
 
 ### **1. Creating and Activating a Conda Environment**
 
@@ -67,8 +90,8 @@ python sampling.py \
 
 The script generates a **GeoPackage** output file containing two main layers:
 
-1. ``: Stratification layer based on biome and fire activity.
-2. ``: Final selection of sampled units.
+1. Stratification layer based on biome and fire activity.
+2. Final selection of sampled units.
 
 The output file will be stored at the location specified in `output_sampling_path`.
 
@@ -95,6 +118,4 @@ conda deactivate
 ✅ **Isolated environment** prevents conflicts with other projects.\
 ✅ **Easy installation** of geospatial dependencies via **conda-forge**.\
 ✅ **Cross-platform compatibility** for Windows, Linux, and macOS.
-
-This setup ensures a professional and reproducible workflow for generating burned area validation samples. Let us know if you need further modifications!
 
