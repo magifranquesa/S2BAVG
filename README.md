@@ -29,7 +29,7 @@ The **S2BAVG** GeoPackage is a database designed for validating burned area (BA)
 
 ---
 
-## **Generating Sampling with **
+## **Generating Sampling with**
 
 The script generates stratified sampling for annual burned area validation. To ensure smooth execution, it is recommended to use a **conda environment**.
 
@@ -67,8 +67,8 @@ python sampling.py \
 
 The script generates a **GeoPackage** output file containing two main layers:
 
-1. ``: Stratification layer based on biome and fire activity.
-2. ``: Final selection of sampled units.
+1. `stratification_layer`: Stratification layer based on biome and fire activity.
+2. `sampling_layer`: Final selection of sampled units.
 
 The output file will be stored at the location specified in `output_sampling_path`.
 
@@ -95,6 +95,3 @@ conda deactivate
 ✅ **Isolated environment** prevents conflicts with other projects.\
 ✅ **Easy installation** of geospatial dependencies via **conda-forge**.\
 ✅ **Cross-platform compatibility** for Windows, Linux, and macOS.
-
-This setup ensures a professional and reproducible workflow for generating burned area validation samples. Let us know if you need further modifications!
-
