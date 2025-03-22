@@ -16,7 +16,11 @@ The **S2BAVG** GeoPackage is a database designed for validating burned area (BA)
 - `land_perc`: Percentage of land area over the total area (`land_area / tile_area`).
 - `biome`: The dominant biome in the unit.
 - `mcd64a1_area`: Total burned area at least once throughout the year according to **MCD64A1**.
+- `mcd64a1_burned_perc`: Percentage of mcd64a1_area over the land area. (mcd64a1_area/land_area).
+- `vnp64a1_area`: Total burned area at least once throughout the year according to **VNP64A1**.
+- `vnp64a1_burned_perc`: Percentage of vnp64a1_area over the land area. (vnp64a1_area/land_area).
 - `firecci51_area`: Total burned area at least once throughout the year according to **FireCCI51**.
+- `firecci51_burned_perc`: Percentage of firecci51_area over the land area. (firecci51_area/land_area).
 - `viirs_count_year`: Total number of VIIRS (VNP14IMGTDL) detections in the year.
 - `image_days_year`: Days with at least one Sentinel-2 image covering at least 99% of the unit.
 - `median_days_interval_year`: Median interval of days between Sentinel-2 images.
