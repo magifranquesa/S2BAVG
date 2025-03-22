@@ -1,3 +1,37 @@
+# ------------------------------------------------------------------------------
+# Script: sampling.py
+# Author: Jon González-Ibarzabal (https://orcid.org/0009-0001-2278-1245)
+# Co-authors: Magí Franquesa (https://orcid.org/0000-0003-3101-0394)
+# Date: March 2025
+
+# Description:
+# This script generates a stratified random sample of tiles for burned area (BA)
+# validation based on fire activity and image availability. The sampling is applied 
+# to a yearly layer within the S2BAVG grid GeoPackage.
+
+# The process includes:
+# 1. Merging the geometries with annual burned area data (FireCCI51 or MCD64A1).
+# 2. Computing fire activity thresholds (80th percentile) by biome.
+# 3. Assigning each tile to a stratum (biome × fire activity: high/low).
+# 4. Filtering tiles based on land cover proportion and cloud-free observation frequency.
+# 5. Allocating the total sample size proportionally to the size and fire activity of each stratum.
+# 6. Ensuring a minimum of 2 tiles per stratum.
+# 7. Saving:
+#    - The stratification layer (`stratification_<year>`)
+#    - The final selected sample (`selected_<year>`)
+
+# Inputs:
+# - gpk_path: GeoPackage with the S2BAVG grid and per-year burned area layers.
+# - ba_data: Burned area product used for stratification ('firecci51', 'mcd64a1', or 'vnp64a1').
+
+# Outputs:
+# - A new GeoPackage with two layers: one for stratification and one for the selected sample.
+
+# Usage (command-line):
+# python sampling.py --gpk_path ./data/S2BAVG.gpkg --output_sampling_path ./output/S2BAVG_samples.gpkg \
+#   --year 2023 --ba_data mcd64a1 --total_sample_size 100 --land_perc_filter 50 --nocloudy_interval_filter 10
+# ------------------------------------------------------------------------------
+
 import geopandas as gpd
 import pandas as pd
 import numpy as np
@@ -96,7 +130,7 @@ if __name__ == "__main__":
     parser.add_argument("--gpk_path", type=str, required=True, help="Path to the S2BAVG.gpkg file")
     parser.add_argument("--output_sampling_path", type=str, required=True, help="Path to save the sampling results")
     parser.add_argument("--year", type=str, required=True, help="Year to sample (from 2016)")
-    parser.add_argument("--ba_data", type=str, choices=['firecci51', 'mcd64a1'], required=True, help="BA product for stratification")
+    parser.add_argument("--ba_data", type=str, choices=['firecci51', 'mcd64a1', 'vnp64a1'], required=True, help="BA product for stratification")
     parser.add_argument("--total_sample_size", type=int, required=True, help="Total sample size")
     parser.add_argument("--land_perc_filter", type=int, default=50, help="Minimum land percentage to include (0-100)")
     parser.add_argument("--nocloudy_interval_filter", type=int, default=10, help="Max median days between cloud-free images")
