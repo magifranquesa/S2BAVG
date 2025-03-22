@@ -45,7 +45,7 @@ conda create --name s2bavg_env python=3.9 -y
 conda activate s2bavg_env
 
 # Install required dependencies
-conda install -c conda-forge geopandas pandas numpy -y
+conda install -c conda-forge geopandas pandas numpy rasterio rasterstats -y
 ```
 
 ### **2. Running the Script**

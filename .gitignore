@@ -12,12 +12,14 @@ __pycache__/
 *.pyc
 *.pyo
 *.pyd
+*.Rhistory
 
 # Ignore Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
 # Ignore large data files
 *.gpkg
+*.hdf
 *.tif
 *.tiff
 *.shp
@@ -44,3 +46,7 @@ Thumbs.db
 outputs/*
 !outputs/.gitkeep
 sampling.gpkg
+!modis_crs.hdf
+/output/
+/temp/
+*.tif
