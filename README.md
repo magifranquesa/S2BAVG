@@ -33,9 +33,9 @@ The **S2BAVG** GeoPackage is a database designed for validating burned area (BA)
 
 ---
 
-## **Generating Sampling with**
+## **Generating Sampling**
 
-The script generates stratified sampling for annual burned area validation. To ensure smooth execution, it is recommended to use a **conda environment**.
+The 'Sampling.py' script is used to generate the stratified sampling for annual burned area validation. To ensure smooth execution, it is recommended to use a **conda environment**.
 
 ### **1. Creating and Activating a Conda Environment**
 
@@ -61,7 +61,7 @@ python sampling.py \
     --gpk_path "C:/path/to/S2BAVG.gpkg" \
     --output_sampling_path "C:/path/to/output/sampling.gpkg" \
     --year "2019" \ 
-    --ba_data "firecci51" \  # Options: "firecci51" or "mcd64a1"
+    --ba_data "firecci51" \  # Options: "firecci51", "mcd64a1" or "vnp64a1"
     --total_sample_size 100 \
     --land_perc_filter 50 \
     --nocloudy_interval_filter 10
