@@ -18,7 +18,6 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Ignore large data files
-*.gpkg
 *.hdf
 *.tif
 *.tiff
