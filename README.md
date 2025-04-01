@@ -59,7 +59,7 @@ Once the environment is set up, run the script using command-line arguments:
 ```bash
 python sampling.py \
     --gpk_path "C:/path/to/S2BAVG.gpkg" \
-    --output_sampling_path "C:/path/to/output/sampling.gpkg" \
+    --output_sampling_path "C:/path/to/output/sampling \
     --year "2019" \ 
     --ba_data "firecci51" \  # Options: "firecci51", "mcd64a1" or "vnp64a1"
     --total_sample_size 100 \
@@ -69,10 +69,14 @@ python sampling.py \
 
 ### **3. Output Files**
 
-The script generates a **GeoPackage** output file containing two main layers:
+The script generates a **GeoPackage** output file containing three main layers:
 
 1. `stratification_layer`: Stratification layer based on biome and fire activity.
-2. `sampling_layer`: Final selection of sampled units.
+2. `filtered_layer`: Total population after cloud cover and land area filtering. 
+3. `sampling_layer`: Final selection of sampled units.
+
+An aditional csv file is generated storing the population size (Nh) and the sample size (nh)
+per stratum. This file is needed for the statistical inference.
 
 The output file will be stored at the location specified in `output_sampling_path`.
 
