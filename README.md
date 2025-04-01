@@ -101,6 +101,6 @@ conda deactivate
 
 If you use this repository, please cite the following article:
 
-Jon Gonzalez-Ibarzabala, J., Bastarrika A., Stehman S., Stroppiana D., and Franquesa M. (2025)
+Gonzalez-Ibarzabala, J., Bastarrika A., Stehman S., Stroppiana D., and Franquesa M. (2025)
 **S2BAVG: A Global Sentinel-2 Grid for Burned Area Product Validation**.  
 *Journal* (submitted).
