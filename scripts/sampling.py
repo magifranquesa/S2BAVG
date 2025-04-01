@@ -1,8 +1,25 @@
 # ------------------------------------------------------------------------------
 # Script: sampling.py
 # Author: Jon González-Ibarzabal (https://orcid.org/0009-0001-2278-1245)
-# Co-authors: Magí Franquesa (https://orcid.org/0000-0003-3101-0394)
+# Co-authors: 
+# - Magí Franquesa: Environmental Hydrology Climate and Human Activity Interactions,
+#   Geoenvironmental Processes, IPE-CSIC (magi.franquesa@ipe.csic.es).
+#   orcid: https://orcid.org/0000-0003-3101-0394
 # Date: March 2025
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>
+# <http://www.gnu.org/licenses/gpl.txt/>.
 
 # Description:
 # This script generates a stratified random sample of tiles for burned area (BA)
@@ -28,7 +45,7 @@
 # - A new GeoPackage with two layers: one for stratification and one for the selected sample.
 
 # Usage (command-line):
-# python sampling.py --gpk_path ./data/S2BAVG.gpkg --output_sampling_path ./output/S2BAVG_samples.gpkg \
+# python sampling.py --gpk_path ./data/S2BAVG.gpkg --output_sampling_path ./outputs/sampling \
 #   --year 2023 --ba_data mcd64a1 --total_sample_size 100 --land_perc_filter 50 --nocloudy_interval_filter 10
 # ------------------------------------------------------------------------------
 
