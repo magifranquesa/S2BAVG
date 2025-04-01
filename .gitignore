@@ -27,7 +27,6 @@ __pycache__/
 *.dbf
 *.prj
 *.geojson
-*.csv
 *.tsv
 *.xlsx
 
@@ -43,8 +42,8 @@ Thumbs.db
 .Rproj.user/
 
 # Ignore outputs and generated results
-outputs/*
-!outputs/.gitkeep
+#outputs/*
+#!outputs/.gitkeep
 sampling.gpkg
 !modis_crs.hdf
 /output/

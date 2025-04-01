@@ -1,0 +1,17 @@
+Stratum,strata,biome_group,biome,ba,Nh,nh
+1,2019_1_0,Tropical Forest,1,low,1235,5
+2,2019_1_1,Tropical Forest,1,high,578,11
+3,2019_2_0,Temperate Forest,2,low,771,2
+4,2019_2_1,Temperate Forest,2,high,286,4
+5,2019_3_0,Boreal Forest,3,low,559,2
+6,2019_3_1,Boreal Forest,3,high,135,2
+7,2019_4_0,Tropical Savanna,4,low,2035,36
+8,2019_4_1,Tropical Savanna,4,high,585,28
+9,2019_5_0,Temperate Savanna,5,low,1029,2
+10,2019_5_1,Temperate Savanna,5,high,253,4
+11,2019_6_0,Mediterranean,6,low,264,2
+12,2019_6_1,Mediterranean,6,high,69,2
+13,2019_7_0,Deserts & Xeric Shrublands,7,low,2298,2
+14,2019_7_1,Deserts & Xeric Shrublands,7,high,479,5
+15,2019_8_0,Tundra,8,low,696,2
+16,2019_8_1,Tundra,8,high,29,2
