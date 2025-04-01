@@ -97,9 +97,10 @@ conda deactivate
 - **Validation:** You can open the `sampling.gpkg` file in GIS software like **QGIS** or **ArcGIS** to visualize results.
 
 ---
+## Citation
 
-## **Advantages of Using Conda**
+If you use this repository, please cite the following article:
 
-✅ **Isolated environment** prevents conflicts with other projects.\
-✅ **Easy installation** of geospatial dependencies via **conda-forge**.\
-✅ **Cross-platform compatibility** for Windows, Linux, and macOS.
+Jon Gonzalez-Ibarzabala, J., Bastarrika A., Stehman S., Stroppiana D., and Franquesa M. (2025)
+**S2BAVG: A Global Sentinel-2 Grid for Burned Area Product Validation**.  
+*Journal* (submitted).
