@@ -41,8 +41,8 @@ Thumbs.db
 .Rproj.user/
 
 # Ignore outputs and generated results
-#outputs/*
-#!outputs/.gitkeep
+# outputs/*
+# !outputs/.gitkeep
 !modis_crs.hdf
 /temp/
 *.tif
