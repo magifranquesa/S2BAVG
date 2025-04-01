@@ -1,7 +1,7 @@
 # ------------------------------------------------------------------------------
 # Script: sampling.py
-# Author: Jon González-Ibarzabal (https://orcid.org/0009-0001-2278-1245)
-# Co-authors: 
+# Authors: 
+# - Jon González-Ibarzabal (https://orcid.org/0009-0001-2278-1245)
 # - Magí Franquesa: Environmental Hydrology Climate and Human Activity Interactions,
 #   Geoenvironmental Processes, IPE-CSIC (magi.franquesa@ipe.csic.es).
 #   orcid: https://orcid.org/0000-0003-3101-0394
