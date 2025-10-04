@@ -101,6 +101,7 @@ conda deactivate
 
 If you use this repository, please cite the following article:
 
-Gonzalez-Ibarzabala, J., Bastarrika A., Stehman S., Stroppiana D., and Franquesa M. (2025)
-**S2BAVG: A Global Sentinel-2 Grid for Burned Area Product Validation**.  
-*Journal* (submitted).
+Gonzalez-Ibarzabal, J., Bastarrika, A., Stehman, S. V., Stroppiana, D., and Franquesa, M. (2025).  
+**S2BAVG: A global Sentinel-2 grid for burned area product validation**.  
+*International Journal of Applied Earth Observation and Geoinformation, 144,* 104889.  
+[https://doi.org/10.1016/j.jag.2025.104889](https://doi.org/10.1016/j.jag.2025.104889)
